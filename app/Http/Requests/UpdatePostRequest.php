@@ -26,7 +26,8 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'title'   => ['required', Rule::unique('posts')->ignore($this->post), 'max:150'],
-            'content' => ['nullable']
+            'content' => ['nullable'],
+            'author'  => ['nullable']
         ];
     }
 

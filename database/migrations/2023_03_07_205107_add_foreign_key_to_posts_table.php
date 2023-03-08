@@ -22,6 +22,9 @@ return new class extends Migration
                 ->references('id')
                 ->on('categories')
                 ->onDelete('sett null');
+
+            $table->string('excerpt', 150)->nullable();
+            $table->string('author', 70)->nullable();
         });
     }
 
