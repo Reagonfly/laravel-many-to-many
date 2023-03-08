@@ -30,7 +30,7 @@
                     <label for="control-label">
                         Author
                     </label>
-                    <input type="text" class="form-control" placeholder="Author" id="author" name="author" value="{{ old('author') ?? $post->author }}">
+                    <input type="text" class="form-control" placeholder="Author" id="author" name="author">
                     @error('author')
                     <div class="text-danger">{{ $message }}</div>
                     @enderror

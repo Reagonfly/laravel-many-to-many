@@ -19,8 +19,6 @@ class CategorySeeder extends Seeder
     {
         $categories = ['FrontEnt', 'BackEnd', 'FullStack', 'Design', 'DevOps'];
 
-        $types = ['HTML/CSS', 'JScript', 'VueJs', 'PhP', 'SQL', 'Laravel'];
-
         foreach ($categories as $category) {
             $newCategory = new Category();
 
