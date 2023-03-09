@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id')
-                ->nullable('')
+                ->nullable()
                 ->after('id');
 
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
-                ->onDelete('sett null');
+                ->onDelete('set null');
 
             $table->string('excerpt', 150)->nullable();
             $table->string('author', 70)->nullable();

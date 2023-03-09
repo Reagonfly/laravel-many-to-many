@@ -14,12 +14,7 @@
             <p>
                 <strong class="text-danger">Slug: </strong> {{ $post->slug }}
             </p>
-            <p>
-                <strong class="text-secondary">Author: </strong> {{ $post->author ? $post-author-name : 'No Author' }}
-            </p>
-            <p>
-                <strong class="text-secondary">Short: </strong> {{ $post->excerpt ? $post-excerpt : 'No Short' }}
-            </p>
+
             <p>
                 <strong>Category: </strong>{{ $post->category ? $post->category->name : 'Without Category' }}
             </p>
