@@ -23,6 +23,7 @@
                     <th> Id </th>
                     <th> Title </th>
                     <th> Slug </th>
+                    <th>Category</th>
                     <th> Action </th>
                 </thead>
                 <tbody>
@@ -31,6 +32,7 @@
                         <th class="text-success"> {{ $post->id }} </th>
                         <th> {{$post->title}} </th>
                         <th> {{$post->slug}} </th>
+                        <th>{{$post->category['name']}}</th>
                         <th>
                             <a href="{{ route('admin.posts.show', $post->slug) }}" title="View Post" class="btn btn-sm btn-success">
                                 <i class="fa-solid fa-scroll"></i>

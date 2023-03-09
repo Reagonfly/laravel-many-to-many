@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12">
             <div class="d-flex justify-content-between my-3">
-                <h2>Post Details {{ $post->title }}</h2>
+                <h2>Post Details: {{ $post->title }}</h2>
                 <a href="{{ route('admin.posts.index') }}" class="btn btn-sm btn-secondary text-white align-self-center">
                     <strong>Back To List</strong>
                 </a>
@@ -14,7 +14,9 @@
             <p>
                 <strong class="text-danger">Slug: </strong> {{ $post->slug }}
             </p>
-
+            <p>
+                <strong>Author: </strong> {{ $post->author ? $post->author : 'Without Author' }}
+            </p>
             <p>
                 <strong>Category: </strong>{{ $post->category ? $post->category->name : 'Without Category' }}
             </p>
