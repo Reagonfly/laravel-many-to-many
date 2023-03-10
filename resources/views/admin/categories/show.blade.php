@@ -13,12 +13,12 @@
         <div class="col-12">
             <h2><strong>Slug: </strong>{{ $category->slug }}</h2>
             <h3>Post linked to this Category:</h3>
-            <div class="row form-control">
+            <div class="row">
                 @forelse($category->posts as $post)
                 <div class="col-12 col-md-4">
                     <div class="card">
-                        <h4>{{ $post->title }}</h4>
-                        <p>{{ $post->excerpt }}</p>
+                        <h4>{{ $post->title }}</h4>{{ $post->title ? $post->title='' : 'Without Title...' }}
+                        <p>{{ $post->excerpt }}</p>{{ $post->excerpt ? $post->excerpt='' : 'Without Content...' }}
                         <a href="{{ route('admin.posts.show', $post->slug) }}" class="btn btn-sm btn-secondary text-white">
                             Continue Read
                         </a>
@@ -28,6 +28,7 @@
                 <h5 class="text-center">There are No Posts related to This Category</h5>
                 @endforelse
             </div>
+
         </div>
     </div>
 </div>

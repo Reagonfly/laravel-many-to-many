@@ -15,7 +15,7 @@
                 <strong class="text-danger">Slug: </strong> {{ $post->slug }}
             </p>
             <p>
-                <strong>Author: </strong> {{ $post->author ? $post->author : 'Without Author' }}
+                <strong>Author: </strong> {{ $post->author ? $post->author='' : 'Without Author' }}
             </p>
             <p>
                 <strong>Category: </strong>{{ $post->category ? $post->category->name : 'Without Category' }}
