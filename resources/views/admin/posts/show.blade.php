@@ -21,8 +21,13 @@
                 <strong>Category: </strong>{{ $post->category ? $post->category->name : 'Without Category' }}
             </p>
             <p>
-                <strong>Tags: </strong>{{ $post->tag }}
+                <strong>Tags: </strong>
+                @foreach ($post->tags as $tag)
+                {{ $tag->name }}
+                @if (!$loop->last), @endif
+                @endforeach
             </p>
+
             <label class="d-block text-danger my-3">
                 <strong>Content: </strong>
             </label>

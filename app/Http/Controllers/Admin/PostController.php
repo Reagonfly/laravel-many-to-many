@@ -58,14 +58,18 @@ class PostController extends Controller
 
         $form_data['excerpt'] = $excerpt;
 
+        $form_data['slug'] = $slug;
+
         $newPost = new Post();
         $newPost->fill($form_data);
 
         $newPost->save();
 
         if ($request->has('tags')) {
+            dd($newPost->tags());
             $newPost->tags()->attach($request->tags);
         }
+
         return redirect()->route('admin.posts.index')->with('message', 'New Post Created Correctly');
     }
 
@@ -116,6 +120,10 @@ class PostController extends Controller
         $form_data['excerpt'] = $excerpt;
 
         $post->update($form_data);
+
+        if ($request->has('tags')) {
+            $post->tags()->sync($request->tags);
+        }
 
         return redirect()->route('admin.posts.index')->with('message', $post->title . 'Modified Successifully, happy now?');
     }

@@ -47,7 +47,7 @@
                     <div class="control-label">Tags</div>
                     @foreach($tags as $tag)
                     <div class="form-check d-flex @error('tags') is-invalid @enderror">
-                        <input type="checkbox" value="{{ $tag->id }}" class="m-2 shadow" name="tags[]" id="tag_id">{{ $tag->name }},</input>
+                        <input type="checkbox" value="{{ $tag->id }}" class="m-2" name="tags[]" id="tag_id">{{ $tag->name }},</input>
                     </div>
                     @endforeach
                     @error('tags')
