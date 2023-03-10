@@ -95,7 +95,7 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        $form_data = $request->validate();
+        $form_data = $request->validated();
 
         $slug = Post::generateSlug($request->title, '-');
 
