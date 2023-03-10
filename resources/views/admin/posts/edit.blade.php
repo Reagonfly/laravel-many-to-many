@@ -39,20 +39,17 @@
                 <div class="form-group my-3">
                     <label class="control-label">Categories</label>
                     <select class="form-control" name="category_id" id="category_id">
-                        <option value="">Select A Category</option>
                         @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ $category->id == old('category_id', $post->category_id) ? 'selected' : '' }}->{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" @if($category->id == $post->category_id) selected @endif>{{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>
-                @error('category_id')
-                <div class="text-danger">{{ $message }}</div>
-                @enderror
                 <div class="form-group my-3">
                     <div class="control-label">Tags</div>
                     @foreach($tags as $tag)
                     <div class="form-check d-flex @error('tags') is-invalid @enderror">
-                        <input type="checkbox" value="{{ $tag->id }}" class="m-2 shadow" name="tags[]" id="tag_id">{{ $tag->name }},</input>
+                        <input type="checkbox" value="{{ $tag->id }}" class="m-2 shadow" name="tags[]" id="tag_{{ $tag->id }}" @if($post->tags->contains($tag->id)) checked @endif>
+                        <label for="tag_{{ $tag->id }}">{{ $tag->name }}</label>
                     </div>
                     @endforeach
                     @error('tags')
@@ -60,14 +57,12 @@
                     @enderror
                 </div>
                 <div class="form-group my-3">
-                    <label for="control-label">
-                        Content
-                    </label>
-                    <textarea class="form-control" placeholder="Content" id="content" name="content" value="{{ old('content') ?? $post->content }}"></textarea>
+                    <label for="content" class="control-label">Content</label>
+                    <textarea class="form-control" placeholder="Content" id="content" name="content">{{ old('content') ?? $post->content }}</textarea>
+                    @error('content')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                @error('content')
-                <div class="text-danger">{{ $message }}</div>
-                @enderror
                 <div class="form-group my-3">
                     <button type="submit" class="btn btn-sm btn-secondary">
                         Save Post

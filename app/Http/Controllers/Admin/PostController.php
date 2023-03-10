@@ -66,7 +66,7 @@ class PostController extends Controller
         $newPost->save();
 
         if ($request->has('tags')) {
-            dd($newPost->tags());
+
             $newPost->tags()->attach($request->tags);
         }
 

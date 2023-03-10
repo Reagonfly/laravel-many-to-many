@@ -38,11 +38,15 @@
                 <div class="form-group my-3">
                     <label class="control-label">Categories</label>
                     <select class="form-control" name="category_id" id="category_id">
+                        <option value="">Select A Category</option>
                         @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" {{ $category->id == old('category_id', $post->category_id) ? 'selected' : '' }}->{{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>
+                @error('category_id')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
                 <div class="form-group my-3">
                     <div class="control-label">Tags</div>
                     @foreach($tags as $tag)
