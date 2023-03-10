@@ -16,7 +16,7 @@
             <div class="row">
                 @forelse($category->posts as $post)
                 <div class="col-12 col-md-4">
-                    <div class="card">
+                    <div class="card p-2">
                         <h4>{{ $post->title }}</h4>{{ $post->title ? $post->title='' : 'Without Title...' }}
                         <p>{{ $post->excerpt }}</p>{{ $post->excerpt ? $post->excerpt='' : 'Without Content...' }}
                         <a href="{{ route('admin.posts.show', $post->slug) }}" class="btn btn-sm btn-secondary text-white">
