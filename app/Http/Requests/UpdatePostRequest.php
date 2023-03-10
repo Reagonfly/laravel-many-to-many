@@ -41,9 +41,10 @@ class UpdatePostRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.requied'   => 'A Title is Requied to Procede',
-            'title.unique'    => 'A Post With this Title is already IN MEMORY',
-            'title.max'       => 'Post cannot Excede :max Digits'
+            'title.requied'         => 'A Title is Requied to Procede',
+            'title.unique'          => 'A Post With this Title is already IN MEMORY',
+            'title.max'             => 'Post cannot Excede :max Digits',
+            'category_id.exists'    => 'You Have to select a valid Category'
         ];
     }
 }

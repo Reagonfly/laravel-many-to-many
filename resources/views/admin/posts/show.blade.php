@@ -24,7 +24,7 @@
                 <strong>Content: </strong>
             </label>
             <p>
-                {{ $post->content }}
+                <strong class="text-dark"> {{ $post->content }} </strong>
             </p>
         </div>
     </div>

@@ -45,12 +45,18 @@
                         @endforeach
                     </select>
                 </div>
+                @error('category_id')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
                 <div class="form-group my-3">
                     <label for="control-label">
                         Content
                     </label>
                     <textarea class="form-control" placeholder="Content" id="content" name="content" value="{{ old('content') ?? $post->content }}"></textarea>
                 </div>
+                @error('content')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
                 <div class="form-group my-3">
                     <button type="submit" class="btn btn-sm btn-secondary">
                         Save Post
