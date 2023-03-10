@@ -22,12 +22,15 @@
             </p>
             <p>
                 <strong>Tags: </strong>
+                @if ($post->tags->count() > 0)
                 @foreach ($post->tags as $tag)
                 {{ $tag->name }}
                 @if (!$loop->last), @endif
                 @endforeach
+                @else
+                No tags found.
+                @endif
             </p>
-
             <label class="d-block text-danger my-3">
                 <strong>Content: </strong>
             </label>
