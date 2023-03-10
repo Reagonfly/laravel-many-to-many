@@ -49,6 +49,17 @@
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
                 <div class="form-group my-3">
+                    <div class="control-label">Tags</div>
+                    @foreach($tags as $tag)
+                    <div class="form-check d-flex @error('tags') is-invalid @enderror">
+                        <input type="checkbox" value="{{ $tag->id }}" class="m-2 shadow" name="tags[]" id="tag_id">{{ $tag->name }},</input>
+                    </div>
+                    @endforeach
+                    @error('tags')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group my-3">
                     <label for="control-label">
                         Content
                     </label>

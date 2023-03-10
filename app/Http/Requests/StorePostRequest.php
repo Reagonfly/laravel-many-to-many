@@ -27,7 +27,8 @@ class StorePostRequest extends FormRequest
             'title'         => ['required', 'unique:posts', 'max:150'],
             'content'       => ['nullable'],
             'author'        => ['nullable'],
-            'category_id'   => ['nullable', 'exists:categories,id']
+            'category_id'   => ['nullable', 'exists:categories,id'],
+            'tags'          => ['exists:tags,id']
         ];
     }
 
@@ -39,9 +40,11 @@ class StorePostRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.requied'   => 'A Title is Requied to Procede',
-            'title.unique'    => 'A Post With this Title is already IN MEMORY',
-            'title.max'       => 'Post cannot Excede :max Digits'
+            'title.requied'         => 'A Title is Requied to Procede',
+            'title.unique'          => 'A Post With this Title is already IN MEMORY',
+            'title.max'             => 'Post cannot Excede :max Digits',
+            'category_id.exists'    => 'Not Valid Category',
+            'tags.exists'           => 'Not Valid Tag'
         ];
     }
 }

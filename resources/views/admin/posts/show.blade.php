@@ -15,10 +15,13 @@
                 <strong class="text-danger">Slug: </strong> {{ $post->slug }}
             </p>
             <p>
-                <strong>Author: </strong> {{ $post->author ? $post->author='' : 'Without Author' }}
+                <strong>Author: </strong> {{ $post->author }}
             </p>
             <p>
                 <strong>Category: </strong>{{ $post->category ? $post->category->name : 'Without Category' }}
+            </p>
+            <p>
+                <strong>Tags: </strong>{{ $post->tag }}
             </p>
             <label class="d-block text-danger my-3">
                 <strong>Content: </strong>

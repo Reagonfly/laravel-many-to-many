@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
 
 class PostController extends Controller
 {
@@ -31,7 +33,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        $tags = Tag::all();
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -60,6 +63,9 @@ class PostController extends Controller
 
         $newPost->save();
 
+        if ($request->has('tags')) {
+            $newPost->tags()->attach($request->tags);
+        }
         return redirect()->route('admin.posts.index')->with('message', 'New Post Created Correctly');
     }
 
@@ -83,7 +89,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('admin.posts.edit', compact('post', 'categories'));
+        $tags = Tag::all();
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -110,7 +117,7 @@ class PostController extends Controller
 
         $post->update($form_data);
 
-        return redirect()->route('admin.posts.index')->with('message', $post->title . 'Modified Successifully');
+        return redirect()->route('admin.posts.index')->with('message', $post->title . 'Modified Successifully, happy now?');
     }
 
     /**

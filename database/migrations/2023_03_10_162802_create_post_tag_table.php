@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('post_tag', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('post_id')->cascadeOnDelete();
             $table->foreign('post_id')
                 ->references('id')
                 ->on('posts');
 
-            $table->unsignedBigInteger('tag_id');
+            $table->unsignedBigInteger('tag_id')->cascadeOnDelete();
             $table->foreign('tag_id')
                 ->references('id')
                 ->on('tags');
