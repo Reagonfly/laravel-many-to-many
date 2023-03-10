@@ -16,4 +16,15 @@ class Tag extends Model
     {
         return Str::slug($name, '-');
     }
+
+    /**
+     * 
+     *
+     * @from tags to posts
+     */
+
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class);
+    }
 }
