@@ -19,12 +19,12 @@ return new class extends Migration
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')
                 ->references('id')
-                ->on('post');
+                ->on('posts');
 
             $table->unsignedBigInteger('tag_id');
             $table->foreign('tag_id')
                 ->references('id')
-                ->on('tag');
+                ->on('tags');
 
             $table->timestamps();
         });
